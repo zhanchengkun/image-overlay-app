@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkimage_overlay_app=self.webpackChunkimage_overlay_app||[]).push([[60],{60:(e,a,p)=>{e.exports=p.p+"static/media/2.02020eacf54752353067.jpg"}}]);

@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import EditableCanvas from './EditableCanvas';
+import FloatingTimer from './components/FloatingTimer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ paddingTop: '24px' }}> {/* 添加顶部安全区域 */}
+      {/* <h1 style={{ textAlign: 'center', marginTop: '20px', height: "50px" }}>by FX</h1> */}
+      {/* <EditableCanvas /> */}
+      <FloatingTimer />
     </div>
   );
-}
+};
 
 export default App;
