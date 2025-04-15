@@ -275,7 +275,16 @@ const EditableCanvas=() => {
 
   return (
     <>
-      <div>
+      <div
+      style={{zIndex:2 ,position:'relative'}}
+        // style={{
+        //   width: '100vw',
+        //   height: '100vh',
+        //   position: 'relative',
+        //   overflow: 'hidden',
+        //   background: background? `url(${background}) no-repeat center/contain`:'#f0f0f0',
+        // }}
+      >
         {/* 上传背景图片按钮 */}
         <input
           type="file"
@@ -313,6 +322,7 @@ const EditableCanvas=() => {
           width: backgroundSize.width||'100vw',
           height: backgroundSize.height||'100vh',
           position: 'relative',
+          top:100,
           overflow: 'hidden',
           background: background? `url(${background}) no-repeat center/contain`:'#f0f0f0',
         }}

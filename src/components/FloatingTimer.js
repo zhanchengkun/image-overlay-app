@@ -1,9 +1,40 @@
 import React, { useState, useEffect } from 'react';
+import { App } from '@capacitor/app';
+import { Capacitor } from '@capacitor/core';
+
+const requestOverlayPermission = async () => {
+    if (Capacitor.getPlatform() === 'android') {
+      try {
+        // 使用新的权限API
+        const result = await App.canOpenUrl({ url: 'package:/' });
+        if (!result.value) {
+          alert('需要悬浮窗权限');
+        } else {
+          startFloatingService();
+        }
+      } catch (error) {
+        console.error('权限请求失败:', error);
+      }
+    }
+};
+
+const startFloatingService = async () => {
+  try {
+    await App.addListener('appStateChange', (state) => {
+      console.log('App state changed:', state);
+    });
+  } catch (error) {
+    console.error('启动服务失败:', error);
+  }
+};
 
 const FloatingTimer = () => {
   const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEEAD'];
   const [colorIndex, setColorIndex] = useState(0);
   const [time, setTime] = useState(0);
+  useEffect(() => {
+    requestOverlayPermission();
+  },[])
 
   useEffect(() => {
     // 毫秒计时器
